@@ -20,6 +20,7 @@ node app.js
 - save file to folder upload
 
 **future**
+- use ng-file-upload in client
 
 - just allow upload video
 

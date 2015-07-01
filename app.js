@@ -7,8 +7,6 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     multer = require('multer'),
     app = express(),
-    http = require('http').Server(app),
-    io = require('socket.io')(http),
     fs = require('fs'),
     exec = require('child_process').exec,
     util = require('util'),
@@ -36,9 +34,6 @@ app.use(multer({
         size = file.size;
         console.log(size + '\n')
     },
-    onFileUploadData: function(file, data) {
-
-    },
     onFileUploadComplete: function (file) {
         console.log(file.fieldname + ' uploaded to  ' + file.path)
         done = true;
@@ -50,14 +45,8 @@ app.use(express.static(__dirname + '/public'));
 app.post('/upload', function (req, res) {
     if(done==true){
         console.log(req.files);
-        res.end("File uploaded.");
+        res.end("file uploaded");
     }
 });
 
-io.on('connection', function (socket) {
-    console.log('connect');
-});
-
-http.listen(port, function () {
-    console.log("server run on port " + port);
-})
+app.listen(port);

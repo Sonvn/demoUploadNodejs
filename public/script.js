@@ -7,7 +7,18 @@ angular.module('demoUpload', ['ngFileUpload'])
     .controller('demoUpload.ctrl', function ($scope, $http) {
 
         $scope.upload = function () {
-
+            var data = new FormData();
+            angular.forEach($scope.files, function (file) {
+                data.append('file', file);
+            });
+            $http
+                .post('/upload', data, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                })
+                .success(function (data) {
+                    console.log(data);
+                });
         }
     })
     .directive('fileInput', ['$parse', function ($parse) {
