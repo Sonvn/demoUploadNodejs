@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoUpload">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="style.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/5.0.9/ng-file-upload-all.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <div id="UploadBox" ng-controller="demoUpload.ctrl">
+        <h2>Video Uploader</h2>
+            <span id='UploadArea'>
+                <label for="FileBox">Choose A File: </label><input type="file" file-input="files" id="FileBox"><br>
+                <label for="NameBox">Name: </label><input type="text" id="NameBox" ng-model="files.name"><br>
+
+                <button type='button' id='UploadButton' class='Button' ng-click="upload()">Upload</button>
+            </span>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+    </script>
+</body>
+</html>

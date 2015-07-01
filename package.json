@@ -1,0 +1,18 @@
+{
+  "name": "demoUploadNodejs",
+  "version": "1.0.0",
+  "description": "not yet",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Son Vu <https://github.com/Sonvn>",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^1.3.5",
+    "multer": "^0.1.8",
+    "express": "^4.13.0",
+    "body-parser": "^1.13.1"
+  }
+}
